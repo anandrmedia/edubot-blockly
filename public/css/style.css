@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css');
+@import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined');
+
+*,
+*::after,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+#toolbox-div {
+  padding: 8px;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#blockly-div {
+  flex: 1;
+}
+
+/* override blockly's default CSS */
+.blocklyMainBackground {
+  stroke-width: 0 !important;
+}
+.blocklyScrollbarHandle {
+  display: none;
+}
+
+.cat-btn {
+  height: 48px !important;
+  width: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  min-width: 48px !important;
+  max-width: 48px !important;
+  padding: 16px !important;
+  margin-bottom: 8px;
+  font-size: 24px !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.mdc-button--raised .mdc-button__icon,
+.mdc-button--unelevated .mdc-button__icon,
+.mdc-button--outlined .mdc-button__icon {
+  margin: 0px;
+}

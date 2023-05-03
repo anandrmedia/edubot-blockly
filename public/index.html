@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edubot Robot | Blockly</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="toolbox-div">
+      <button
+        class="mdc-button mdc-button--outlined mdc-button--icon-leading cat-btn mdc-ripple-upgraded"
+        data-mdc-auto-init="MDCRipple"
+        style="--mdc-theme-primary: #F44336"
+      >
+        <span class="mdc-button__ripple"></span>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">
+          directions_walk
+        </i>
+      </button>
+      <button
+        class="mdc-button mdc-button--outlined mdc-button--icon-leading cat-btn mdc-ripple-upgraded"
+        data-mdc-auto-init="MDCRipple"
+        style="--mdc-theme-primary: #F44336"
+      >
+        <span class="mdc-button__ripple"></span>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">
+          directions_run
+        </i>
+      </button>
+      <button
+        class="mdc-button mdc-button--outlined mdc-button--icon-leading cat-btn mdc-ripple-upgraded"
+        data-mdc-auto-init="MDCRipple"
+        style="--mdc-theme-primary: #F44336"
+      >
+        <span class="mdc-button__ripple"></span>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">
+          all_inclusive
+        </i>
+      </button>
+      <button
+        class="mdc-button mdc-button--outlined mdc-button--icon-leading cat-btn mdc-ripple-upgraded"
+        data-mdc-auto-init="MDCRipple"
+        style="--mdc-theme-primary: #F44336"
+      >
+        <span class="mdc-button__ripple"></span>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">
+          games
+        </i>
+      </button>
+      <button
+        class="mdc-button mdc-button--outlined mdc-button--icon-leading cat-btn mdc-ripple-upgraded"
+        data-mdc-auto-init="MDCRipple"
+        style="--mdc-theme-primary: #F44336"
+      >
+        <span class="mdc-button__ripple"></span>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">
+          tips_and_updates
+        </i>
+      </button>
+      <button
+        class="mdc-button mdc-button--outlined mdc-button--icon-leading cat-btn mdc-ripple-upgraded"
+        data-mdc-auto-init="MDCRipple"
+        style="--mdc-theme-primary: #F44336"
+      >
+        <span class="mdc-button__ripple"></span>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">
+          sensors
+        </i>
+      </button>
+      <button
+        class="mdc-button mdc-button--outlined mdc-button--icon-leading cat-btn mdc-ripple-upgraded"
+        data-mdc-auto-init="MDCRipple"
+        style="--mdc-theme-primary: #F44336"
+      >
+        <span class="mdc-button__ripple"></span>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">
+          sign_language
+        </i>
+      </button>
+      <button
+        class="mdc-button mdc-button--outlined mdc-button--icon-leading cat-btn mdc-ripple-upgraded"
+        data-mdc-auto-init="MDCRipple"
+        style="--mdc-theme-primary: #F44336"
+      >
+        <span class="mdc-button__ripple"></span>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">
+          volume_up
+        </i>
+      </button>
+    </div>
+    <div id="blockly-div" style="height: 100vh; width: 100vw"></div>
+
+    <!-- MATERIAL JS -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <!-- Load JS of Blockly -->
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <!-- Load JS of Blockly Blocks -->
+    <script src="./javascript/blocks.js"></script>
+    <script src="./javascript/generators.js"></script>
+    <script>
+      mdc.autoInit();
+      const options = {
+        toolbox: {
+          contents: [
+            {
+              kind: 'CATEGORY',
+              contents: [
+                { kind: 'BLOCK', type: 'movements_x', fields: { DIR: '+' } },
+                { kind: 'BLOCK', type: 'movements_x', fields: { DIR: '-' } },
+                {
+                  kind: 'BLOCK',
+                  type: 'movement_with_stop',
+                  fields: { DIR: '1' },
+                },
+                {
+                  kind: 'BLOCK',
+                  type: 'movement_with_stop',
+                  fields: { DIR: '2' },
+                },
+                {
+                  kind: 'BLOCK',
+                  type: 'movement_with_stop',
+                  fields: { DIR: '3' },
+                },
+                {
+                  kind: 'BLOCK',
+                  type: 'movement_with_stop',
+                  fields: { DIR: '4' },
+                },
+                {
+                  kind: 'BLOCK',
+                  type: 'movement_with_stop',
+                  fields: { DIR: '5' },
+                },
+                {
+                  kind: 'BLOCK',
+                  type: 'movement_with_stop',
+                  fields: { DIR: '6' },
+                },
+                {
+                  kind: 'BLOCK',
+                  type: 'movement_with_stop',
+                  fields: { DIR: '8' },
+                },
+                {
+                  kind: 'BLOCK',
+                  type: 'movement_with_stop',
+                  fields: { DIR: '9' },
+                },
+                { kind: 'BLOCK', type: 'stop' },
+              ],
+              name: 'Movement',
+            },
+            {
+              kind: 'CATEGORY',
+              contents: [
+                { kind: 'BLOCK', type: 'movement_y', fields: { DIR: '1' } },
+                { kind: 'BLOCK', type: 'movement_y', fields: { DIR: '2' } },
+                { kind: 'BLOCK', type: 'drift', fields: { DIR: '3' } },
+                { kind: 'BLOCK', type: 'drift', fields: { DIR: '4' } },
+                { kind: 'BLOCK', type: 'drift', fields: { DIR: '5' } },
+                { kind: 'BLOCK', type: 'drift', fields: { DIR: '6' } },
+                { kind: 'BLOCK', type: 'drift', fields: { DIR: '8' } },
+                { kind: 'BLOCK', type: 'drift', fields: { DIR: '9' } },
+                { kind: 'BLOCK', type: 'stop' },
+              ],
+              name: 'Infinite Movement',
+            },
+            {
+              kind: 'CATEGORY',
+              contents: [
+                {
+                  kind: 'BLOCK',
+                  type: 'angular_movement',
+                  fields: { OP1: 'R' },
+                },
+                {
+                  kind: 'BLOCK',
+                  type: 'angular_movement',
+                  fields: { OP1: 'L' },
+                },
+                { kind: 'BLOCK', type: 'rotate' },
+                { kind: 'BLOCK', type: 'stop' },
+              ],
+              name: 'Angular Movement',
+            },
+            {
+              kind: 'CATEGORY',
+              contents: [{ kind: 'BLOCK', type: 'control_loop' }],
+              name: 'Controls',
+            },
+            {
+              kind: 'CATEGORY',
+              contents: [
+                { kind: 'BLOCK', type: 'edu_bot_light' },
+                { kind: 'BLOCK', type: 'edu_bot_light_off' },
+                {
+                  kind: 'BLOCK',
+                  type: 'edu_bot_light_with_time',
+                },
+                {
+                  kind: 'BLOCK',
+                  type: 'edu_bot_light_change_with_time',
+                },
+              ],
+              name: 'Lights',
+            },
+            {
+              kind: 'CATEGORY',
+              contents: [
+                { kind: 'BLOCK', type: 'wait_until' },
+                { kind: 'BLOCK', type: 'color_detection' },
+                { kind: 'BLOCK', type: 'distance_detection' },
+              ],
+              name: 'Sensors',
+            },
+            {
+              kind: 'CATEGORY',
+              contents: [{ kind: 'BLOCK', type: 'clap_detection' }],
+              name: 'Events',
+            },
+            {
+              kind: 'CATEGORY',
+              contents: [{ kind: 'BLOCK', type: 'buzzer' }],
+              name: 'Sounds',
+            },
+          ],
+        },
+        collapse: true,
+        comments: true,
+        css: true,
+        disable: true,
+        grid: {
+          spacing: 25,
+          length: 1,
+          colour: '#212121',
+          snap: true,
+        },
+        horizontalLayout: false,
+        maxBlocks: Infinity,
+        theme: {
+          fontStyle: {
+            family: 'Varela Round, sans-serif',
+            weight: '400',
+            size: 14,
+          },
+        },
+        move: {
+          scrollbars: {
+            horizontal: true,
+            vertical: true,
+          },
+          drag: true,
+          wheel: false,
+        },
+        readOnly: false,
+        renderer: 'geras',
+        rtl: false,
+        sounds: true,
+        trashcan: true,
+        renderer: 'zelos',
+        zoom: {
+          controls: true,
+          wheel: true,
+          startScale: 1,
+          maxScale: 3,
+          minScale: 0.5,
+          scaleSpeed: 1.1,
+          pinch: true,
+        },
+      };
+      const workspace = Blockly.inject('blockly-div', options);
+      workspace.getToolbox().setVisible(false);
+      function myUpdateFunction(event) {
+        let code = Blockly.JavaScript.workspaceToCode(workspace);
+        let commands = code.split('#').map(function (x) {
+          return x.replace('\n', '');
+        });
+        commands.pop();
+        window.postMessage(JSON.stringify({type: 'code', payload: commands.join('\n')}));
+        console.log(commands.join('\n'));
+      }
+      workspace.addChangeListener(myUpdateFunction);
+    </script>
+    <script>
+      const buttons = document.querySelectorAll('#toolbox-div button');
+      Array.from(buttons).forEach((b, i) => {
+        b.addEventListener('click', function () {
+          Blockly.svgResize(workspace);
+          workspace.getToolbox().selectItemByPosition(i);
+          Blockly.svgResize(workspace);
+        });
+      });
+    </script>
+  </body>
+</html>
